@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Hola Amigos! ✨</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Librería para el efecto de Confeti 🎉 -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Fondo con degradado bonito */
+    body {
+      background: linear-gradient(135deg, #a8edd9 0%, #fed6e3 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Estilo de la tarjeta principal */
+    .card-saludo {
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Botón animado */
+    .btn-sorpresa {
+      background: linear-gradient(45deg, #ff758c, #ff7eb3);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 30px;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-sorpresa:hover {
+      transform: scale(1.06);
+      box-shadow: 0 8px 20px rgba(255, 117, 140, 0.4);
+      color: white;
+    }
+
+    .emoji-grande {
+      font-size: 4rem;
+      transition: transform 0.3s ease;
+    }
+
+    .badge-fun {
+      background-color: #fff3bf;
+      color: #856404;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center justify-content-center p-3">
+
+  <div class="container text-center" style="max-width: 550px;">
+    <div class="card card-saludo p-4 p-md-5 my-3">
+      
+      <!-- Emoji animado que cambia -->
+      <div class="emoji-grande mb-2" id="emojiHeader">🥳</div>
+      
+      <!-- Título Principal -->
+      <h1 class="fw-bold text-dark mb-2">¡Hola, Grupo! ✨</h1>
+      <p class="text-muted fs-6 mb-4">
+        Solo pasaba por aquí a recordarles que son las mejores. ❤️ <br> Dany, Mabe, Nudi & Fany
+      </p>
+
+      <!-- Mensaje que cambia al hacer clic -->
+      <div class="alert alert-light border shadow-sm rounded-4 p-3 mb-4" id="boxMensaje">
+        <p class="mb-0 fs-5 fw-semibold text-dark" id="textoMensaje">
+          Presiona el botón 👇
+        </p>
+      </div>
+
+      <!-- Botón Interactivo -->
+      <button class="btn btn-sorpresa shadow fs-5 mb-4" onclick="lanzarSorpresa()">
+         Hola, soy un botón 🎉
+      </button>
+
+      <!-- Mini sección con razones divertidas -->
+      <hr class="my-4">
+      <p class="fw-bold text-secondary mb-3 small text-uppercase">Razones por las que son las mejores amigas:</p>
+      
+      <div class="row g-2">
+        <div class="col-4">
+          <div class="p-2 bg-light rounded-4 border">
+            <div class="fs-4">🍕</div>
+            <small class="fw-semibold d-block mt-1">Fieles al chisme</small>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="p-2 bg-light rounded-4 border">
+            <div class="fs-4">😎</div>
+            <small class="fw-semibold d-block mt-1">Apoyo 100%</small>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="p-2 bg-light rounded-4 border">
+            <div class="fs-4">🚫</div>
+            <small class="fw-semibold d-block mt-1">0% Mala vibra</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Script de Bootstrap 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Lógica súper simple en JavaScript -->
+  <script>
+    // Lista de frases divertidas
+    const frases = [
+      "✨ ¡Gracias por aguantar mis locuras todos los días!",
+      "🍕 ¿A qué hora se arma la salida el finde o qué?",
+      "😎 Vengo a recordarles que soy su amigo favorito.",
+      "💖 ¡Les mando un abrazo gigantesco!",
+      "🚀 Hoy es un gran día para no hacer nada juntos."
+    ];
+
+    // Lista de emojis alegres
+    const emojis = ["🥳", "🍕", "💖", "🚀", "😎", "⭐", "🎉"];
+
+    function lanzarSorpresa() {
+      // 1. Efecto de Confeti 🎉
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      // 2. Seleccionar frase y emoji al azar
+      const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+      const emojiAleatorio = emojis[Math.floor(Math.random() * emojis.length)];
+
+      // 3. Actualizar la tarjeta
+      document.getElementById("textoMensaje").innerText = fraseAleatoria;
+      document.getElementById("emojiHeader").innerText = emojiAleatorio;
+    }
+  </script>
+</body>
+</html>
