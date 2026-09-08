@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¡El Hub Oficial del Grupo! 🔥🎉</title>
+  <title>Hub de Amigos + Novio Virtual 🤖💖</title>
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
       100% { background-color: #ff4500; }
     }
 
-    /* Tarjeta Neón */
+    /* Tarjeta Hub Grupo */
     .card-fun {
       background: rgba(30, 41, 59, 0.85);
       border: 2px solid rgba(255, 255, 255, 0.1);
@@ -41,19 +41,63 @@
       box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
 
-    /* Botón Escurridizo */
+    /* Tarjeta Novio Virtual */
+    .card-boyfriend {
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(255, 117, 140, 0.3);
+      border: 3px solid #ff416c;
+    }
+
+    .chat-box {
+      background: #f8f9fa;
+      border-radius: 15px;
+      height: 160px;
+      overflow-y: auto;
+      border: 1px solid #dee2e6;
+    }
+
+    .bubble-user {
+      background: #e2e8f0;
+      color: #333;
+      border-radius: 15px 15px 0 15px;
+      padding: 8px 12px;
+      max-width: 80%;
+      float: right;
+      clear: both;
+      margin-bottom: 8px;
+    }
+
+    .bubble-boy {
+      background: #ff416c;
+      color: white;
+      border-radius: 15px 15px 15px 0;
+      padding: 8px 12px;
+      max-width: 80%;
+      float: left;
+      clear: both;
+      margin-bottom: 8px;
+    }
+
+    .btn-cute {
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+
+    .btn-cute:hover {
+      color: white;
+      opacity: 0.9;
+    }
+
     #btnHuidizo {
       position: relative;
       transition: all 0.15s ease-out;
       z-index: 999;
     }
 
-    .badge-fun {
-      font-size: 0.9rem;
-      border-radius: 20px;
-    }
-
-    /* Efecto de sacudida */
     .shake {
       animation: shakeAnim 0.3s ease-in-out;
     }
@@ -65,17 +109,19 @@
     }
   </style>
 </head>
-<body class="d-flex align-items-center justify-content-center p-3">
+<body class="p-3">
 
-  <div class="container text-center" style="max-width: 600px;" id="mainContainer">
-    <div class="card card-fun p-4 p-md-5 my-3">
-      
-      <!-- Encabezado con Emoji Animado -->
+  <div class="container text-center my-4" style="max-width: 600px;" id="mainContainer">
+    
+    <!-- ========================================== -->
+    <!-- SECCIÓN 1: HUB DEL GRUPO DE AMIGOS          -->
+    <!-- ========================================== -->
+    <div class="card card-fun p-4 p-md-5 mb-5">
       <div class="display-1 mb-2" id="mainEmoji">👾</div>
       <h1 class="fw-black text-warning display-5 fw-bold mb-1">¡HOLA BANDA! 🔥</h1>
       <p class="text-light opacity-75 mb-4">El panel de control interactivo exclusivo para mis amigos favoritos.</p>
 
-      <!-- SECCIÓN 1: LA RULETA DEL GRUPO -->
+      <!-- Ruleta -->
       <div class="bg-dark bg-opacity-50 p-4 rounded-4 mb-4 border border-secondary">
         <h5 class="text-info fw-bold mb-3">🎰 Ruleta de la Verdad</h5>
         <h3 class="fw-bold text-white mb-3" id="resultadoRuleta">¿Quién paga los tacos hoy? 👇</h3>
@@ -84,43 +130,94 @@
         </button>
       </div>
 
-      <!-- SECCIÓN 2: GENERADOR DE APODOS -->
+      <!-- Apodos -->
       <div class="bg-dark bg-opacity-50 p-3 rounded-4 mb-4 border border-secondary">
-        <h6 class="text-warning fw-bold mb-2">🏷️ Generador de Apodos del Día</h6>
-        <p class="fs-5 fw-semibold text-light mb-2" id="apodoTexto">Tu apodo hoy es: <span class="badge bg-warning text-dark">???</span></p>
+        <h6 class="text-warning fw-bold mb-2">🏷️ Mezclador de Apodos Adolescentes</h6>
+        <div id="contenedorApodo" class="my-3">
+          <span class="fs-5 fw-semibold text-light">Tu apodo hoy es: </span>
+          <br class="d-sm-none">
+          <span class="badge bg-warning text-dark fs-5 mt-2" id="badgeApodo">???</span>
+        </div>
         <button class="btn btn-outline-warning btn-sm rounded-pill px-3" onclick="generarApodo()">
-          ✨ Descubrir mi Apodo
+          ✨ Generar Combinación
         </button>
       </div>
 
-      <!-- BOTONES DE ACCIÓN LINDOS Y LOCOS -->
+      <!-- Botones de Acción -->
       <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-3">
-        <!-- Botón Modo Fiesta -->
         <button class="btn btn-danger btn-lg fw-bold rounded-pill px-4" onclick="toggleModoFiesta()">
           🪩 MODO FIESTA
         </button>
-
-        <!-- Botón Lanza Amor -->
         <button class="btn btn-success btn-lg fw-bold rounded-pill px-4" onclick="lluviaDeAmor()">
           💖 Lluvia de Amor
         </button>
       </div>
 
-      <!-- EL BOTÓN TROLL QUE SE ESCAPA -->
+      <!-- Botón Troll -->
       <div class="mt-3">
         <button id="btnHuidizo" class="btn btn-outline-light btn-sm rounded-pill" onmouseover="huirBoton()" onclick="atrapado()">
           🚫 ¡Prohibido Clic! (No me vas a atrapar)
         </button>
       </div>
-
     </div>
+
+    <!-- SEPARADOR DE SECCIONES -->
+    <div class="my-5 text-center">
+      <hr class="border-secondary opacity-50">
+      <span class="badge bg-danger fs-6 px-3 py-2 rounded-pill shadow">👇 O SI PREFIERES... 👇</span>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SECCIÓN 2: NOVIO VIRTUAL 3000              -->
+    <!-- ========================================== -->
+    <div class="card card-boyfriend p-4 p-md-5 mb-4">
+      <div class="display-2 mb-1" id="avatarBoy">🤴🏻</div>
+      <h2 class="fw-bold text-danger mb-0">Novio Virtual 3000</h2>
+      <p class="text-muted small mb-4">Siempre atento, nunca desacuerda y 0% tóxico.</p>
+
+      <!-- Chat -->
+      <div class="bg-light p-3 rounded-4 mb-4 border text-start">
+        <label class="form-label fw-bold text-secondary small">💬 Háblale a tu novio:</label>
+        <div class="chat-box p-3 mb-2" id="chatBox">
+          <div class="bubble-boy">¡Hola, mi reina! ¿Cómo estuvo tu día? 🥰</div>
+        </div>
+        <div class="input-group">
+          <input type="text" id="userInput" class="form-control" placeholder="Escribe algo..." onkeypress="if(event.key==='Enter') enviarMensaje()">
+          <button class="btn btn-danger" onclick="enviarMensaje()">Enviar</button>
+        </div>
+      </div>
+
+      <!-- Comida -->
+      <div class="bg-white p-3 rounded-4 mb-4 border shadow-sm">
+        <h6 class="fw-bold text-danger mb-1">🍕 Solucionador: "¿Qué comemos hoy?"</h6>
+        <p class="fs-6 fw-semibold text-dark my-2" id="textoComida">Presiona para evitar 2 horas de indecisión 👇</p>
+        <button class="btn btn-outline-danger btn-sm rounded-pill px-3" onclick="decidirComida()">
+          🎲 Decidir Menú
+        </button>
+      </div>
+
+      <!-- Acciones Rápidas -->
+      <div class="row g-2">
+        <div class="col-6">
+          <button class="btn btn-cute w-100 py-2 rounded-4 shadow-sm" onclick="pedirMimos()">
+            💖 Exigir Mimos
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-warning w-100 py-2 rounded-4 text-dark fw-bold shadow-sm" onclick="generarExcusa()">
+            🎮 ¿Por qué no contesta?
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- JS de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Audio Context para generar efectos de sonido retro sin cargar archivos externos
+    // Audio Sintético para ambas secciones
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
     function playSound(tipo) {
@@ -150,7 +247,7 @@
       }
     }
 
-    // 1. RULETA DE LA VERDAD
+    /* --- LÓGICA HUB DEL GRUPO --- */
     const opcionesRuleta = [
       "🌮 Le toca pagar los tacos al que lee esto",
       "😴 Fany",
@@ -163,6 +260,7 @@
       "🍺 El que dice 'una y nos vamos' y se queda hasta el final",
       "🏈 El mas fife",
     ];
+
 
     function girarRuleta() {
       playSound('pop');
@@ -181,46 +279,17 @@
       }, 100);
     }
 
-    // 2. GENERADOR DE APODOS
-    const cosas = [
-      "Capibara",
-      "Michi",
-      "Taco de Pastor",
-      "NPC",
-      "Chisme",
-      "Sticker sin Fondo",
-      "Audio de 3 Minutos",
-      "PDF de la Tarea",
-      "Batería en 1%",
-      "Cuenta Secundaria",
-      "Broster",
-      "Notificación de TikTok",
-      "Personaje Secundario"
-    ];
-
-    const adjetivos = [
-      "Alucín 🏎️",
-      "Basado/a 🔥",
-      "Funado/a 🚫",
-      "Lagueado/a 📶",
-      "Aesthetic ✨",
-      "Tryhard 🎯",
-      "Cringe 😬",
-      "Fantasma 👻",
-      "Espectador/a 👀",
-      "Desvelado/a 🌙",
-      "Modo Pro 😎",
-      "Tímido/a 🙈"
-    ];
+    const cosas = ["Capibara", "Michi", "Taco de Pastor", "NPC", "Chisme", "Sticker sin Fondo", "Audio de 3 Minutos", "Batería en 1%", "Broster", "Notificación de TikTok"];
+    const adjetivos = ["Alucín 🏎️", "Basado/a 🔥", "Funado/a 🚫", "Lagueado/a 📶", "Aesthetic ✨", "Tryhard 🎯", "Cringe 😬", "Fantasma 👻", "Espectador/a 👀", "Modo Pro 😎"];
 
     function generarApodo() {
       playSound('pop');
+      const cosa = cosas[Math.floor(Math.random() * cosas.length)];
       const adj = adjetivos[Math.floor(Math.random() * adjetivos.length)];
-      const ani = cosas[Math.floor(Math.random() * cosas.length)];
-      document.getElementById("apodoTexto").innerHTML = `Tu apodo hoy es: <span class="badge bg-warning text-dark fs-6">${ani} ${adj}</span>`;
+      document.getElementById("badgeApodo").innerText = `${cosa} ${adj}`;
+      confetti({ particleCount: 25, spread: 40 });
     }
 
-    // 3. MODO FIESTA
     let modoFiesta = false;
     function toggleModoFiesta() {
       playSound('win');
@@ -233,7 +302,6 @@
         container.classList.add("shake");
         document.getElementById("mainEmoji").innerText = "🪩";
         
-        // Ráfaga de confeti continuo
         let duracion = 3 * 1000;
         let fin = Date.now() + duracion;
 
@@ -250,26 +318,17 @@
       }
     }
 
-    // 4. LLUVIA DE AMOR
     function lluviaDeAmor() {
       playSound('win');
-      confetti({
-        shapes: ['star'],
-        colors: ['#ff758c', '#ff7eb3', '#ffffff'],
-        particleCount: 100,
-        spread: 100,
-        origin: { y: 0.6 }
-      });
+      confetti({ shapes: ['star'], colors: ['#ff758c', '#ff7eb3', '#ffffff'], particleCount: 100, spread: 100, origin: { y: 0.6 } });
       document.getElementById("mainEmoji").innerText = "💖";
     }
 
-    // 5. BOTÓN TROLL ES CURRIDIZO
     function huirBoton() {
       playSound('pop');
       const btn = document.getElementById("btnHuidizo");
       const x = Math.random() * (window.innerWidth - 180);
       const y = Math.random() * (window.innerHeight - 60);
-      
       btn.style.position = 'fixed';
       btn.style.left = `${x}px`;
       btn.style.top = `${y}px`;
@@ -277,6 +336,63 @@
 
     function atrapado() {
       alert("¡No puede ser, me atrapaste! 🎉 Eres demasiado rápido.");
+    }
+
+    /* --- LÓGICA NOVIO VIRTUAL --- */
+    const respuestasVirtuales = [
+      "Tienes 100% la razón, mi vida. Yo me equivocado total. ❤️",
+      "¿Te compro unos tacos para consentirte? 🌮",
+      "Qué bonita te ves hoy, aunque no te esté viendo, lo sé. ✨",
+      "Ahorita mismo le pido perdón a tu mamá si se enojó contigo. 🫡",
+      "Obvio sí, lo que tú digas se hace. 👑",
+      "Déjame voy por unos chocolates y voy corriendo a verte. 🍫"
+    ];
+
+    function enviarMensaje() {
+      const input = document.getElementById("userInput");
+      const texto = input.value.trim();
+      if (!texto) return;
+
+      playSound('pop');
+      const chatBox = document.getElementById("chatBox");
+
+      chatBox.innerHTML += `<div class="bubble-user">${texto}</div>`;
+      input.value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      setTimeout(() => {
+        playSound('pop');
+        const resp = respuestasVirtuales[Math.floor(Math.random() * respuestasVirtuales.length)];
+        chatBox.innerHTML += `<div class="bubble-boy">${resp}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 700);
+    }
+
+    const comidas = ["🍕 Pizza familiar (yo la pago).", "🌮 Tacos al pastor con mucha salsa.", "🍣 Sushi y postre.", "🍔 Hamburguesas con papas extra.", "🍗 Boneless picantes y malteada."];
+
+    function decidirComida() {
+      playSound('pop');
+      const res = comidas[Math.floor(Math.random() * comidas.length)];
+      document.getElementById("textoComida").innerText = res;
+      confetti({ particleCount: 30, spread: 50 });
+    }
+
+    const mimos = ["✨ Eres la persona más increíble del universo entero.", "🌹 Un ramo gigante de rosas virtuales solo para ti.", "👑 Reina del mundo mundial.", "💖 Mi día mejora 1000% solo cuando me hablas."];
+
+    function pedirMimos() {
+      playSound('win');
+      const mimo = mimos[Math.floor(Math.random() * mimos.length)];
+      alert(mimo);
+      confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+    }
+
+    const excusas = ["🎮 'Estaba en una partida no pausable de Warzone, perdón.'", "😴 'Me quedé dormido 5 minutos y pasaron 4 horas.'", "📶 'Mi internet está tan lento como mi cerebro hoy.'", "🍕 'Estaba buscando qué comer y me dio amnesia.'"];
+
+    function generarExcusa() {
+      playSound('pop');
+      const exc = excusas[Math.floor(Math.random() * excusas.length)];
+      document.getElementById("avatarBoy").innerText = "😅";
+      alert(`Excusa de tu novio: \n\n"${exc}"`);
     }
   </script>
 </body>
