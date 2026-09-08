@@ -340,12 +340,27 @@
 
     /* --- LÓGICA NOVIO VIRTUAL --- */
     const respuestasVirtuales = [
-      "Tienes 100% la razón, mi vida. Yo me equivocado total. ❤️",
-      "¿Te compro unos tacos para consentirte? 🌮",
-      "Qué bonita te ves hoy, aunque no te esté viendo, lo sé. ✨",
-      "Ahorita mismo le pido perdón a tu mamá si se enojó contigo. 🫡",
-      "Obvio sí, lo que tú digas se hace. 👑",
-      "Déjame voy por unos chocolates y voy corriendo a verte. 🍫"
+        "¿Quién es ese tal 'Carlos' que le dio like a tu foto de hace 3 semanas? 🤨",
+        "Tardaste 2 minutos enteros en contestar... ¿con quién estabas hablando? 📱👀",
+        "Pásame tu ubicación en tiempo real o no te creo que estás en tu casa. 📍",
+        "No me pasa nada... tú sabrás perfectamente lo que hiciste. 😒",
+        "Está bien, ve con tus amigas, al cabo que ya vi que no te importo. 🚪💔",
+        "¿Y ese 'Ok' tan seco? Ya no me tratas bonito como al principio... 🥺",
+        "Mándame foto de cómo te vestiste a ver si de verdad vas a salir así. 👗❓",
+        "Visto a las 8:05 y respondes a las 8:07. Se nota la prioridad. ⏱️",
+        "¿Por qué estás en línea y no me has contestado a mí? 🟢😡",
+        "¿Con quién hablabas que te salía la llamada ocupada? 📱🔥",
+        "Está bien, diviértete con tus amiguitos, yo me quedo aquí solo... 😔",
+        "Ya vi que le diste 'Me encanta' al meme de tu compañero. 👍🙃",
+        "Bloquea a tu ex o esto no va a funcionar, tú decides. 🚫",
+        "Me dormí temprano pero soñé que me engañabas, explícame eso. 😤",
+        "Mándame captura de pantalla de tus chats arriba para ver a quién tienes fijado. 📸",
+        "¿Quién es ese que te comentó un emoji y por qué no lo has borrado? 👁️👄👁️",
+        "Dices que te fuiste a dormir, pero Spotify dice que estabas escuchando música hace 10 minutos. 🎧🔍",
+        "No estoy celoso, solo cuido lo mío... 🔒",
+        "Haz lo que quieras, al final siempre haces lo que quieres. 👋",
+        "¿Quién es 'Mamá 2' en tus contactos y por qué te habla tanto? 🤨",
+        "A ver, tómale foto a la mesa para ver con quién estás sentada. 📸🍕"
     ];
 
     function enviarMensaje() {
@@ -386,7 +401,25 @@
       confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
     }
 
-    const excusas = ["🎮 'Estaba en una partida no pausable de Warzone, perdón.'", "😴 'Me quedé dormido 5 minutos y pasaron 4 horas.'", "📶 'Mi internet está tan lento como mi cerebro hoy.'", "🍕 'Estaba buscando qué comer y me dio amnesia.'"];
+    const excusas = [
+        "🎮 'Estaba en una partida no pausable de Warzone, perdón.'",
+        "😴 'Me quedé dormido 5 minutos y pasaron 4 horas.'",
+        "📶 'Mi internet está tan lento como mi cerebro hoy.'", 
+        "🍕 'Estaba buscando qué comer y me dio amnesia.'",
+        "🛌 'Me quedé atrapado en la cama, no podía levantarme.'",
+        "🍗 'Se me cayó el celular adentro del caldo de pollo de mi abuela.'",
+        "🛸 'Me abdujeron unos aliens, pero me regresaron porque no dejaba de hablar de ti.'",
+        "🐶 'Mi perro se comió el módem y tuve que esperar a que hiciera efecto la digestión.'",
+        "🕵️‍♂️ 'Tuve que entrar a una misión secreta de la CIA y tuve que apagar el chip.'",
+        "⏳ 'Me quedé atrapado en un bucle temporal dentro del OXXO comprando unas papitas.'",
+        "🐱 'Un gato callejero me robó el teléfono y se dio a la fuga por los techos.'",
+        "⚡ 'Se cayó el satélite de WhatsApp justo arriba de mi casa, a nadie más le afectó.'",
+        "😴 'Me dio amnesia temporal cada vez que intentaba desbloquear la pantalla.'",
+        "🧙‍♂️ 'Un hechicero me lanzó un conjuro de silencio digital por 3 horas.'",
+        "📱 'El teléfono detectó que estabas demasiado bonita y se bloqueó por seguridad.'",
+        "🕳️ 'Me caí en un bache tan profundo que la señal tardó horas en salir de ahí.'",
+        "🍕 'Me quedé paralizado intentando decidir si pedir pizza o tacos y perdí el conocimiento.'"
+    ];
 
     function generarExcusa() {
       playSound('pop');
